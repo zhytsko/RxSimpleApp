@@ -16,14 +16,25 @@ class ViewController: UIViewController {
         circleView.center = view.center
         circleView.backgroundColor = .red
         view.addSubview(circleView)
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(circleMoved))
-        circleView.addGestureRecognizer(gestureRecognizer)
+        let motionGesture = UILongPressGestureRecognizer(target: self, action: #selector(circleMoved))
+        let colorGesture = UITapGestureRecognizer(target: self, action: #selector(circlePainted))
+        circleView.addGestureRecognizer(motionGesture)
+        circleView.addGestureRecognizer(colorGesture)
     }
     
-    @objc func circleMoved(recognizer: UIPanGestureRecognizer) {
+    @objc func circleMoved(recognizer: UILongPressGestureRecognizer) {
         let location = recognizer.location(in: view)
         UIView.animate(withDuration: 0.0) {
             self.circleView.center = location
+        }
+    }
+    
+    @objc func circlePainted(recognizer: UITapGestureRecognizer) {
+        let red = CGFloat(Double.random(in: 0..<255) / 255.0)
+        let green = CGFloat(Double.random(in: 0..<255) / 255.0)
+        let blue = CGFloat(Double.random(in: 0..<255) / 255.0)
+        UIView.animate(withDuration: 0.0) {
+           self.circleView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
         }
     }
 }
