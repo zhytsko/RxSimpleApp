@@ -12,6 +12,7 @@
 		2E8F29CD22B8F0620001A2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8F29CC22B8F0620001A2DB /* Assets.xcassets */; };
 		2E8F29D022B8F0620001A2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8F29CE22B8F0620001A2DB /* LaunchScreen.storyboard */; };
 		2E8F29DE22B8F4D40001A2DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F29DD22B8F4D40001A2DB /* ViewController.swift */; };
+		2E8F29E022B90A330001A2DB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F29DF22B90A330001A2DB /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2E8F29CF22B8F0620001A2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E8F29D122B8F0620001A2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E8F29DD22B8F4D40001A2DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E8F29DF22B90A330001A2DB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = ../../../../Documents/ViewModel.swift; sourceTree = "<group>"; };
 		67D8F5C5B54019996A50014F /* Pods-RxSimpleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSimpleApp.release.xcconfig"; path = "Target Support Files/Pods-RxSimpleApp/Pods-RxSimpleApp.release.xcconfig"; sourceTree = "<group>"; };
 		84C28F6D49AABDD5DA9C8D2F /* Pods-RxSimpleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSimpleApp.debug.xcconfig"; path = "Target Support Files/Pods-RxSimpleApp/Pods-RxSimpleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AD007173A93F9002C7CD5010 /* Pods_RxSimpleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSimpleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 		2E8F29DC22B8F4A80001A2DB /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				2E8F29DF22B90A330001A2DB /* ViewModel.swift */,
 				2E8F29DD22B8F4D40001A2DB /* ViewController.swift */,
 			);
 			path = Application;
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8F29DE22B8F4D40001A2DB /* ViewController.swift in Sources */,
+				2E8F29E022B90A330001A2DB /* ViewModel.swift in Sources */,
 				2E8F29C622B8F05E0001A2DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
