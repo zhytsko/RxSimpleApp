@@ -1,21 +1,38 @@
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
     
     var circleView: UIView!
+    let viewModel = ViewModel()
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCircle()
+        setupCircleView()
     }
     
-    func setupCircle() {
+    func setupCircleView() {
         let frame = CGRect(origin: view.center, size: CGSize(width: 150, height: 150))
         circleView = UIView(frame: frame)
         circleView.layer.cornerRadius = circleView.frame.width / 2.0
         circleView.center = view.center
-        circleView.backgroundColor = .red
+        circleView.backgroundColor = viewModel.getRandomColor()
         view.addSubview(circleView)
+        
+        circleView
+            .rx.observe(CGPoint.self, "center")
+            .bind(to: viewModel.circleCenterVariable)
+            .disposed(by: disposeBag)
+        
+        viewModel.backgroundColorObservable
+            .subscribe(onNext:{ [weak self] backgroundColor in
+                UIView.animate(withDuration: 0.0) {
+                    self?.view.backgroundColor = backgroundColor
+                }
+            })
+            .disposed(by: disposeBag)
+        
         let motionGesture = UILongPressGestureRecognizer(target: self, action: #selector(circleMoved))
         let colorGesture = UITapGestureRecognizer(target: self, action: #selector(circlePainted))
         circleView.addGestureRecognizer(motionGesture)
@@ -30,11 +47,8 @@ class ViewController: UIViewController {
     }
     
     @objc func circlePainted(recognizer: UITapGestureRecognizer) {
-        let red = CGFloat(Double.random(in: 0..<255) / 255.0)
-        let green = CGFloat(Double.random(in: 0..<255) / 255.0)
-        let blue = CGFloat(Double.random(in: 0..<255) / 255.0)
         UIView.animate(withDuration: 0.0) {
-           self.circleView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+            self.circleView.backgroundColor = self.viewModel.getRandomColor()
         }
     }
 }
